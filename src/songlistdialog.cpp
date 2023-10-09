@@ -1,4 +1,4 @@
-#include "gonglistdialog.h"
+#include "songlistdialog.h"
 #include <QDebug>
 #include <QDomDocument>
 #include<QFileDialog>
