@@ -1,20 +1,28 @@
+
 #pragma once
+#include <QAbstractitemModel>
 #include <QDialog>
-namespace Ui 
-{
+#include "songdialog.h"
+
+namespace UI {
 class SongListDialog;
 }
-
-
-class SongListDialog : public QDialog 
-{
+class SongListDialog: public QDialog {
 Q_OBJECT
 
 public:
-	SongListDialog(QWidget *parent = nullptr);
-	~SongListDialog();
+SongListDialog(QWidget *parent = nullptr);
+~SongListDialog();
+
+void createTable();
+void readFile();
+
 public slots:
-	void on_btnCreate_clicked();
+void on_btnCreate_clicked();
+void on_btnSave_clicked();
+void on_btnUpdate_clicked();
+
 private:
-	Ui::SongListDialog* m_ui = nullptr;
+Ui::SongListDialog *m_ui = nullptr; SongDialog *dlg;
+String path = "/home/user/develop/SongList/build/bin";
 };
