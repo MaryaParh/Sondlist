@@ -27,8 +27,8 @@ void setMark(int m);
 void showPreview(const OString GrelativePath) const;
 
 private slots:
-void on _buttonBoy_accepted();
-void on _buttonBox rejected();
+void on_buttonBox_accepted();
+void on_buttonBox_rejected();
 
 private:
 void choosePreview();
