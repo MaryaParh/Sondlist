@@ -3,13 +3,13 @@
 #include <QDomDocument>
 #include<QFileDialog>
 #include <QStringList>
-#include "songdialog.h
-#include songlistdialog.h"
+#include "songdialog.h"
+#include "songlistdialog.h"
 SongListDialog::SongListDialog(QWidget"parent):QDialog(parent)
 m_ui = new Ui::SongListDialog();
 dlg =new SongDialog();
-m_ui-›setupUi (this) ;
-m_ui-›information->hide();
+m_ui->setupUi (this) ;
+m_ui->information->hide();
 readFile ();
 createTable();
 SongListDialog::~SongListDialog()
@@ -19,7 +19,7 @@ delete m_ui;
 void SonglistDialog::createTable ()
 {
 QStringList header;
-header << ("Превью Альбомв") << ("Название") << ("Исполнитель")<< ("Продолжительность");
+header << ("Превью Альбома") << ("Название") << ("Исполнитель")<< ("Продолжительность");
 m_ui->tableWidget->setColumnCount(header.count());
 m_ui->tableWidget->setHorizontalHeaderLabels(header):
 m_ui->tablewidget->resizeRowsToContents(); 
