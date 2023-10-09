@@ -6,40 +6,40 @@
 #include "songdialog.h
 #include songlistdialog.h"
 SongListDialog::SongListDialog(QWidget"parent):QDialog(parent)
-m_ui = new Ui: :SongListDialog () :
-dlg =new SongDialog ();
-m_ui-›setupUi (this) ;
-m_ui-›information-›hide();
+m_ui = new Ui::SongListDialog();
+dlg =new SongDialog();
+m_ui-â€ºsetupUi (this) ;
+m_ui-â€ºinformation->hide();
 readFile ();
 createTable();
-SongListDialog::-SongListDialog()
+SongListDialog::~SongListDialog()
 {
 delete m_ui;
 }
 void SonglistDialog::createTable ()
 {
 QStringList header;
-header << ("Èçîáðàæåíèå") << ("Íàçâàíèå") << ("Èñïîëíèòåëü")
-??("Ïðîäîëæèòåëüíîñòü");
-m_ui-›tableWidget-›setColumnCount(header.count());
-m_ui->tableWidget-›setHorizontalHeaderLabels(header):
-m_ui-›tablewidget-›resizeRowsToContents() : m_ui->tableWidget-›resizeColumnsToContents):
-m_ui-›tablewidget-›setSelectionMode(QAbstractItenView::SingleSelection);
+header << ("ÐŸÑ€ÐµÐ²ÑŒÑŽ ÐÐ»ÑŒÐ±Ð¾Ð¼Ð²") << ("ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ") << ("Ð˜ÑÐ¿Ð¾Ð»Ð½Ð¸Ñ‚ÐµÐ»ÑŒ")<< ("ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾ÑÑ‚ÑŒ");
+m_ui->tableWidget->setColumnCount(header.count());
+m_ui->tableWidget->setHorizontalHeaderLabels(header):
+m_ui->tablewidget->resizeRowsToContents();Â 
+ m_ui->tableWidget->resizeColumnsToContents():
+m_ui->tablewidget->setSelectionMode(QAbstractItemView::SingleSelection);
 void SongListDialog:: readFile ()
 {
 QDomDocument doc;
 QFile file (path + "/music. xmi"):
 if (file.exists ())
-m_ui-›information-›setText(tr ("Ôàéë ñóùåñòâóåò"")) ;
+m_ui-â€ºinformation->setText(tr ("Ð¤Ð°Ð¹Ð» ÑÑƒÑ‰ÐµÑÑ‚Ð²ÑƒÐµÑ‚")) ;
 if (file.open (QI0Device:: Text | QI0Device: :ReadOnly))
 {
-m_ul-›information-›setText (tr ("Ôàéë îòêðûò"));
+m_ul->information->setText (tr ("Ð¤Ð°Ð¹Ð» Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚"));
 int errorl, errorC: QString errors;
 11 (Idoc.setContent(&file, true, errors, &errorl, &errorC))
 {
-qDebug () <‹ "Error
+qDebug () << "Error
 << errorS<< errorL<<errorC;
-file. close ():
+file.close ():
 }
 else
 {
@@ -54,35 +54,35 @@ QBrush brush;
 brush. setTextureImage (QImage (elem.attribute ("icon", "")));
  
 QTableWidgetitem *item = new QTableWidgetItem();
-m_ui-›tableWidget-›insertRow(m_ui-›tableWidget-›rowCount());
-m_ui->tableNidget-›setItem(m_ui-›tableWidget->rowCount()-1,0,item);
-m_ui-›tablewidget->setitem(m_ui->tableWidget->rouCount()-1, new QTableWidgetItem(elem.attribute("name"
+m_ui->tableWidget->insertRow(m_ui->tableWidget-â€ºrowCount());
+m_ui->tableNidget->setItem(m_ui->tableWidget->rowCount()-1,0,item);
+m_ui->tablewidget->setItem(m_ui->tableWidget->rouCount()-1, new QTableWidgetItem(elem.attribute("name"
 "")));
-m_ui->tablewidget->setI”Item(m_ui-›tablewidget-›rowCount()-1,2, new QTableWidgetItem(elem.attribute ("author"
+m_ui->tablewidget->setItem(m_ui->tablewidget->rowCount()-1,2, new QTableWidgetItem(elem.attribute ("author"
 "") ));
-m ui->tableWidget-›setItem(m_ui-›tablewidget-›rowCount()-1,3, new QTableWidgetItem.attribute ("size"
+m ui->tableWidget->setItem(m_ui->tablewidget->rowCount()-1,3, new QTableWidgetItem.attribute ("size"
 "")));
 node = node.nextsibling () ;
 }
 }
 }
 else
-m_ui->information-›setText (tr ("ôàéë îòñóòñòâóåò"));
+m_ui->information->setText (tr ("Ñ„Ð°Ð¹Ð»Ð° Ð½ÐµÑ‚"));
 void SonglistDialog::on_btnCreate_clicked ()
 {
-dlg->setWindowTitle (tr ("Ñîçäàíèå")) ;
-int res = dlg-›exec();
-if (QDialog: :Rejected)
+dlg->setWindowTitle (tr ("ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ðµ")) ;
+int res = dlg->exec();
+if (QDialog::Rejected)
 return;
 QBrush brush;
-brush. setTextureImage (QImage (dlg-›iconName () )) ;
+brush. setTextureImage (QImage (dlg->iconName () )) ;
 QTableWidgetItem *item = new QTableWidgetitem() ;
 item->setBackground (brush);
-m_ui->tableWidget-›insertRow(m_ui-›tableWidget-›rowCount(j);
-m_ui->tableWidget-›setiIem(m_ui-›tableWidget-›rowCount()-1,0,item);
-m_ui->tableWidget-›setItem(m_ui-›tablewidget->rowCount()-1, new QTablewidgetItem(dlg->name () )) ;
-m_ui-›tableWidget-›setitem(mui-›tableWidget-›rowCount()-1,2, new QTableWidgetItem (dlg-›author () ));
-m_ui->tableWidget-›setItem(m_ui-›tableWidget->rowCount()-1,3,
+m_ui->tableWidget->insertRow(m_ui->tableWidget->rowCount(j);
+m_ui->tableWidget->setiIem(m_ui->tableWidget->rowCount()-1,0,item);
+m_ui->tableWidget->setItem(m_ui->tablewidget->rowCount()-1, new QTablewidgetItem(dlg->name () )) ;
+m_ui->tableWidget->setitem(mui->tableWidget->rowCount()-1,2, new QTableWidgetItem (dlg->author () ));
+m_ui->tableWidget->setItem(m_ui->tableWidget->rowCount()-1,3,
 new QTableWidgetItem(QString:::number(dlg->size()));
 void SongListDialog::on_btnSave_clicked ()
 {
@@ -97,11 +97,11 @@ encoding= 'UTF-8'");
 doc. appendChild (Xnode) ;
 QDomElement root = doc. createElement ("compositions" );
 doc.appendChild (root);
-if (m_ui->tableWidget->selectionModel(-›hasSelection())
+if (m_ui->tableWidget->selectionModel()->hasSelection())
 {
 int row = m_ui->tableWidget->currentRow () ;
 QDomElement complex = doc.createElement ("composition");
-complex. setAttribute ("icon", m_ui-›tableWidget-›item(row, 0)->text ()); complex. setAttribute ("name", m_ui-›tablewidget-›item(row, 1) ->text ()) ; complex.setAttribute ("author", m_ui-›tableWidget-›item(row, 2)-›text () ); complex. setAttribute ("size", m_ui->tablewidget-›item(row, 3) ->text () ) ;
+complex. setAttribute ("icon", m_ui-â€ºtableWidget->item(row, 0)->text ()); complex. setAttribute ("name", m_ui->tablewidget->item(row, 1) ->text ()) ; complex.setAttribute ("author", m_ui->tableWidget->item(row, 2)->text () ); complex. setAttribute ("size", m_ui->tablewidget->item(row, 3)->text () ) ;
 root.appendChild (complex);
 }
 file.open (QIODevice: :WriteOnly | QIODevice:: Text | QIODevice:: ReadOnly) ;
@@ -110,24 +110,25 @@ out << doc.toString ();
 file.close () ;
 if (file.exists ( ))
 {
-m_ui->information-›setText(tr ("Ôàéë ñóùåñòâóåò") );
+m_ui->information->setText(tr ("Ñ„Ð°Ð¹Ð» ÑÐ¾Ñ…Ñ€Ð°Ð½Ñ‘Ð½") );
 m_ui->information->show () ;
 }
 }
 void SonglistDialog::on_btnUpdate_clicked()
 {
-if (m_ui-›tableWidget-›selectionModel(-›hasSelection())
+if (m_ui->tableWidget->selectionModel()->hasSelection())
 {
-int row = m_ui-›tableWidget->currentRow () ; dlg-›setWindowTitle(tr("Ðåäàêòèðîâàíèå"));
+int row = m_ui-â€ºtableWidget->currentRow () ; 
+ dlg->setWindowTitle(tr("Ñ€ÐµÐ´Ð°ÐºÑ‚Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ"));
 dlg->show ();
-dlg-›setIconName (m_ui-›tableWidget-›item (row, 0) -›text () ) ;
-dlg->setName (m ui-›tablewidget-›item(row, 1) ->text ());
-dlg->setAuthor (m_ui-›tableWidget->item(row, 2) ->text () );
-dlg-›setSize (m_ui-›tablewidget-›item (row, 3) ->text ());
+dlg->setIconName (m_ui->tableWidget->item (row, 0) ->text () ) ;
+dlg->setName (m ui->tablewidget->item(row, 1) ->text ());
+dlg->setAuthor (m_ui->tableWidget->item(row, 2) ->text () );
+dlg->setSize (m_ui->tablewidget->item (row, 3) ->text ());
 }
 else
 {
-m_ui->information-›setText (tr ("Âûäåëèòå ñòðîêó äëÿ ðåäàêòèðîâàíèÿ") );
+m_ui->information->setText (tr ("Ð²Ñ‹Ð´ÐµÐ»Ð¸Ñ‚Ðµ ÑÑ‚Ñ€Ð¾ÐºÑƒ") );
 m_ui->information->show ();
 }
 }
