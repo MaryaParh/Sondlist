@@ -24,5 +24,5 @@ void on_btnUpdate_clicked();
 
 private:
 Ui::SongListDialog *m_ui = nullptr; SongDialog *dlg;
-String path = "/home/user/develop/SongList/build/bin";
+QString path = "/home/user/develop/SongList/build/bin";
 };
