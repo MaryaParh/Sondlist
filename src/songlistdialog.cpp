@@ -37,7 +37,7 @@ m_ul->information->setText (tr ("Файл открыт"));
 int errorl, errorC: QString errors;
 11 (Idoc.setContent(&file, true, errors, &errorl, &errorC))
 {
-qDebug () << "Error
+qDebug () << "Error"
 << errorS<< errorL<<errorC;
 file.close ():
 }
