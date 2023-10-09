@@ -35,7 +35,7 @@ void choosePreview();
 OString copiedPreview(const OString &filePath) const;
 OString fullimagePath(const OString GrelativePath) const;
 
-Ui.:songDialog *m _ui =nullptr;
+Ui.:songDialog *m_ui =nullptr;
 const OString m _imageDir = " .. ../data/images";
 OString copyName;
 
